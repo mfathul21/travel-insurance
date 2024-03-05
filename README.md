@@ -80,8 +80,12 @@ Statistika deskriptif untuk fitur kategorikal:
 ### Exploratory Data Analysis (EDA)
 
 Pada tahap EDA, dilakukan beberapa teknik visualisasi dan analisis univariat dan multivariat untuk memahami data lebih dalam:
+
 ![Comparison of evaluation model](https://drive.google.com/uc?id=17WAG9Z7I4umemnUYa7ulwpq_ognGNHSs)
-![Comparison of evaluation model](https://drive.google.com/uc?id=1Qew65rWnI8Kjeb1fU34apF3XqQ27x4lB) 
+![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q) 
+![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q) 
+![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q)
+
 
 - **Countplot pada Data Kategori**: Mayoritas pelanggan bekerja di sektor swasta, telah lulus kuliah, tidak memiliki status FrequentFlyer, dan tidak pernah melakukan perjalanan ke luar negeri.
 - **Histplot pada Data Numerik**: Mayoritas pelanggan berusia sekitar 28 tahun, dengan pendapatan tahunan berkisar antara 300.000 hingga 1.800.000 rupee, dan memiliki 3 hingga 5 anggota keluarga.

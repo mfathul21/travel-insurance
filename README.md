@@ -45,16 +45,17 @@ Data yang Anda gunakan pada proyek kali ini adalah "Travel Insurance Prediction 
 - `EverTravelledAbroad` : Apakah Pelanggan Pernah Berpergian ke Luar Negeri [Tidak Necessarily Menggunakan Layanan Perusahaan]
 - `Asuransi Perjalanan` : Apakah Pelanggan Membeli Paket Asuransi Perjalanan Selama Penawaran Pengenalan yang Diadakan pada Tahun 2019.
 
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
+### Exploratory Data Analysis
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+Proses persiapan data sangat penting dalam pengembangan model prediktif. Berikut adalah beberapa langkah yang akan dilakukan dalam proses persiapan data:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+- Drop Data Duplikat: Menghapus duplikat data akan membantu menghindari bias dalam model dan memastikan integritas data yang baik. Duplikat data dapat mempengaruhi pembelajaran model dengan memberikan bobot yang tidak proporsional terhadap sampel tertentu.
+- Encoding Data Kategorikal: Data kategorikal perlu diubah menjadi representasi numerik agar dapat digunakan dalam model pembelajaran mesin. Ini dapat dilakukan dengan teknik seperti one-hot encoding atau label encoding, tergantung pada karakteristik data.
+- Pemisahan Data Train dan Test: Data perlu dibagi menjadi set pelatihan dan pengujian. Set pelatihan digunakan untuk melatih model, sedangkan set pengujian digunakan untuk mengevaluasi kinerja model. Ini penting untuk mengukur seberapa baik model akan berkinerja pada data yang belum pernah dilihat sebelumnya.
+- Oversampling dengan Metode SMOTE: Ketidakseimbangan kelas dalam data dapat mempengaruhi kinerja model. Metode SMOTE (Synthetic Minority Over-sampling Technique) digunakan untuk menyeimbangkan jumlah sampel antara kelas mayoritas dan minoritas dengan menciptakan sampel sintetis dari kelas minoritas.
+- Standarisasi dengan StandarScaler pada Fitur Age, FamilyMembers, dan AnnualIncome: Standarisasi fitur numerik memastikan bahwa semua fitur memiliki skala yang serupa. Ini penting untuk algoritma yang sensitif terhadap skala, seperti regresi logistik atau SVM. Standarisasi juga membantu dalam konvergensi lebih cepat selama proses pembelajaran.
 
 ## Modeling
 Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.

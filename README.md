@@ -19,31 +19,63 @@ Referensi: [Predicting Travel Insurance Purchases in an Insurance Firm through M
 ## Business Understanding
 
 ### Problem Statements
-Berdasarkan kondisi yang telah diuraikan sebelumnya, perusahaan akan mengembangkan sistem prediksi asuransi perjalanan untuk menjawab permasalahan berikut:
+Berdasarkan kondisi yang telah diuraikan sebelumnya, perusahaan akan mengembangkan sebuah sistem prediksi asuransi perjalanan yang dapat memprediksi apakah pelanggan akan membeli asuransi perjalanan atau tidak berdasarkan berbagai fitur, untuk menjawab permasalahan berikut.
 
-- Fitur-fitur mana yang memiliki dampak paling signifikan terhadap keputusan nasabah untuk membeli asuransi perjalanan?
-- Dapatkah kita memprediksi dengan akurasi tinggi apakah seorang nasabah akan membeli asuransi perjalanan berdasarkan fitur-fitur yang telah diidentifikasi?
+- Fitur mana yang memiliki dampak paling signifikan terhadap keputusan nasabah untuk membeli asuransi perjalanan?
+- Membangun model prediktif dengan nilai ROC AUC di atas 70% yang dapat memprediksi dengan akurasi tinggi apakah pelanggan akan membeli asuransi perjalanan berdasarkan fitur-fitur yang telah diidentifikasi? Akurasi tinggi dalam konteks ini akan diukur menggunakan metrik evaluasi ROC AUC.
 
 ### Goals
-Untuk menjawab pertanyaan tersebut, kita memiliki tujuan sebagai berikut:
+Untuk menjawab pertanyaan tersebut, Anda akan membuat predictive modelling dengan tujuan atau goals sebagai berikut:
 
-- Mengidentifikasi fitur-fitur yang memiliki dampak paling signifikan terhadap keputusan pembelian asuransi perjalanan.
-- Mengembangkan model pembelajaran mesin yang dapat memprediksi dengan akurasi tinggi apakah seorang nasabah akan membeli asuransi perjalanan berdasarkan fitur-fitur yang telah diidentifikasi.
+- Menggunakan metode .feature_importances_ dari model yang dipilih untuk menemukan fitur-fitur yang memiliki dampak paling signifikan terhadap keputusan pembelian asuransi perjalanan.
+- Membangun model prediktif dengan ROC AUC di atas 70% pada data uji. Dengan mencapai nilai ROC AUC tersebut, proyek dapat dikatakan berhasil karena model mampu memprediksi keputusan pembelian asuransi perjalanan dengan tingkat akurasi yang memadai.
+
+**Statement Solusi**
+
+Untuk mencapai tujuan tersebut, langkah-langkah berikut akan diambil:
+
+- **Exploratory Data Analysis (EDA)**: Melakukan analisis data untuk memahami karakteristik data dan hubungan antara fitur-fitur dengan target.
+- **Data Preparation**: Menangani nilai yang hilang, encoding fitur kategorikal, dan penskalaan fitur numerik untuk mempersiapkan data untuk pemodelan.
+- **Pemodelan**: Membangun beberapa model pembelajaran mesin seperti Logistic Regression, Random Forest, dan Gradient Boosting. Setiap model akan dievaluasi menggunakan metrik ROC AUC pada data test.
+- **Identifikasi Fitur Signifikan**: Menggunakan metode `.feature_importances_` dari model yang dipilih untuk mengidentifikasi fitur-fitur yang memiliki dampak paling signifikan terhadap keputusan pembelian asuransi perjalanan.
+- **Hyperparameter Tuning**: Melakukan penyetelan hyperparameter pada model terbaik untuk meningkatkan kinerja dan memastikan bahwa model dapat mencapai minimal ROC AUC 0.7 jika belum terpenuhi.
+- **Evaluasi dan Interpretasi**: Mengevaluasi kinerja model terhadap metrik yang ditentukan dan menginterpretasi hasil untuk mengidentifikasi fitur-fitur yang paling berpengaruh dalam keputusan pembelian asuransi perjalanan.
 
 ## Data Understanding
 Data yang digunakan dalam proyek ini berasal dari "Travel Insurance Prediction Data" yang diunduh dari <a href="https://www.kaggle.com/datasets/tejashvi14/travel-insurance-prediction-data">Kaggle API</a>. Dataset ini terdiri dari 1987 baris dengan 9 fitur, termasuk fitur non-numerik seperti Employment Type, GraduateOrNot, FrequentFlyer, dan EverTravelledAbroad, serta fitur numerik seperti Age, AnnualIncome, FamilyMembers, dan ChronicDiseases. Fitur target adalah TravelInsurance.
 
 Berikut adalah fitur-fitur pada dataset Travel Insurance:
 
-- Age: Usia Pelanggan
-- Employment Type: Sektor tempat Pelanggan bekerja
-- GraduateOrNot: Apakah Pelanggan lulus kuliah atau tidak
-- AnnualIncome: Pendapatan tahunan Pelanggan dalam Rupee India [Dibulatkan ke Nearest 50 Ribu Rupee]
-- FamilyMembers: Jumlah anggota dalam keluarga Pelanggan
-- ChronicDiseases: Apakah Pelanggan menderita penyakit atau kondisi kronis seperti diabetes/tekanan darah tinggi atau asma, dll.
-- FrequentFlyer: Riwayat perjalanan pesawat Pelanggan dalam 2 tahun terakhir (2017-2019), apakah sering bepergian dengan pesawat atau tidak
-- EverTravelledAbroad: Apakah Pelanggan pernah bepergian ke luar negeri atau tidak
-- TravelInsurance: Apakah Pelanggan membeli asuransi perjalanan atau tidak
+- Age (int64): Usia Pelanggan
+- Employment Type (object): Sektor tempat Pelanggan bekerja
+- GraduateOrNot (object): Apakah Pelanggan lulus kuliah atau tidak
+- AnnualIncome (int64): Pendapatan tahunan Pelanggan dalam Rupee India [Dibulatkan ke Nearest 50 Ribu Rupee]
+- FamilyMembers (int64): Jumlah anggota dalam keluarga Pelanggan
+- ChronicDiseases (int64): Apakah Pelanggan menderita penyakit atau kondisi kronis seperti diabetes/tekanan darah tinggi atau asma, dll.
+- FrequentFlyer (object): Riwayat perjalanan pesawat Pelanggan dalam 2 tahun terakhir (2017-2019), apakah sering bepergian dengan pesawat atau tidak
+- EverTravelledAbroad (object): Apakah Pelanggan pernah bepergian ke luar negeri atau tidak
+- TravelInsurance (int64): Apakah Pelanggan membeli asuransi perjalanan atau tidak
+
+Statistika deskriptif untuk fitur numerik:
+|             | Age      | AnnualIncome | FamilyMembers | ChronicDiseases | TravelInsurance |
+|-------------|----------|--------------|---------------|-----------------|-----------------|
+| count       | 1987.000 | 1987.000     | 1987.000      | 1987.000        | 1987.000        |
+| mean        | 29.650   | 932763.0     | 4.753         | 0.278           | 0.357           |
+| std         | 2.913    | 376855.7     | 1.610         | 0.448           | 0.479           |
+| min         | 25.000   | 300000.0     | 2.000         | 0.000           | 0.000           |
+| 25%         | 28.000   | 600000.0     | 4.000         | 0.000           | 0.000           |
+| 50%         | 29.000   | 900000.0     | 5.000         | 0.000           | 0.000           |
+| 75%         | 32.000   | 1250000.0    | 6.000         | 1.000           | 1.000           |
+| max         | 35.000   | 1800000.0    | 9.000         | 1.000           | 1.000           |
+
+Statistika deskriptif untuk fitur kategorikal:
+|                        | Employment Type          | GraduateOrNot   | FrequentFlyer   | EverTravelledAbroad   |
+|------------------------|--------------------------|-----------------|-----------------|-----------------------|
+| count                  | 1249                     | 1249            | 1249            | 1249                  |
+| unique                 | 2                        | 2               | 2               | 2                     |
+| top                    | Private Sector/Self Employed | Yes           | No              | No                    |
+| freq                   | 876                      | 1047            | 954             | 1005                  |
+
 
 ### Exploratory Data Analysis (EDA)
 

@@ -83,4 +83,9 @@ ROC AUC adalah area di bawah kurva ROC (Receiver Operating Characteristic), yang
 Dengan memperhatikan matriks evaluasi ini, model klasifikasi terbaik dapat dipilih berdasarkan kinerjanya dalam memisahkan kelas positif dan negatif. Model dengan ROC AUC yang lebih tinggi akan dianggap lebih baik dalam memprediksi keputusan pembelian asuransi perjalanan, karena mampu mengidentifikasi pelanggan yang kemungkinan besar membeli asuransi perjalanan dengan lebih baik. Oleh karena itu, penggunaan ROC AUC sebagai matriks evaluasi utama akan membantu dalam pemilihan model yang paling sesuai dengan tujuan bisnis dan karakteristik data yang ada.
 
 Berikut hasil matriks evaluasi dengan ROC AUC untuk setiap model:
-<img source=assets/comparison-roc-auc.jpg>
+  <figure>
+      <img src="assets/comparison-roc-auc.jpg" alt="comparison-roc-auc" width="500">
+      <figcaption>
+          Comparison of ROC AUC between models
+      </figcaption>
+  </figure> <br />

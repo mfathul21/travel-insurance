@@ -35,15 +35,15 @@ Data yang Anda gunakan pada proyek kali ini adalah "Travel Insurance Prediction 
 
 ### Berdasarkan informasi dari Kaggle, fitur-fitur pada Travel Insurance dataset adalah sebagai berikut:
 
-- `Age` : Usia Pelanggan
-- `Employment Type` : Sektor di Mana Pelanggan Bekerja
-- `GraduateOrNot` : Apakah Pelanggan Lulus Kuliah atau Tidak
-- `AnnualIncome` : Pendapatan Tahunan Pelanggan dalam Rupee India [Dibulatkan ke Nearest 50 Ribu Rupee]
-- `FamilyMembers` : Jumlah Anggota dalam Keluarga Pelanggan
-- `ChronicDiseases` : Apakah Pelanggan Menderita Penyakit atau Kondisi Mayor seperti Diabetes/Tekanan Darah Tinggi atau Asma, dll.
-- `FrequentFlyer` : Data yang Didapat Berdasarkan Riwayat Pelanggan dalam Membeli Tiket Pesawat di Setidaknya 4 Kali Berbeda dalam 2 Tahun Terakhir [2017-2019].
-- `EverTravelledAbroad` : Apakah Pelanggan Pernah Berpergian ke Luar Negeri [Tidak Necessarily Menggunakan Layanan Perusahaan]
-- `Asuransi Perjalanan` : Apakah Pelanggan Membeli Paket Asuransi Perjalanan Selama Penawaran Pengenalan yang Diadakan pada Tahun 2019.
+- Age : Usia Pelanggan
+- Employment Type : Sektor di Mana Pelanggan Bekerja
+- GraduateOrNot : Apakah Pelanggan Lulus Kuliah atau Tidak
+- AnnualIncome : Pendapatan Tahunan Pelanggan dalam Rupee India [Dibulatkan ke Nearest 50 Ribu Rupee]
+- FamilyMembers : Jumlah Anggota dalam Keluarga Pelanggan
+- ChronicDiseases : Apakah Pelanggan Menderita Penyakit atau Kondisi Mayor seperti Diabetes/Tekanan Darah Tinggi atau Asma, dll.
+- FrequentFlyer : Data yang Didapat Berdasarkan Riwayat Pelanggan dalam Membeli Tiket Pesawat di Setidaknya 4 Kali Berbeda dalam 2 Tahun Terakhir [2017-2019].
+- EverTravelledAbroad : Apakah Pelanggan Pernah Berpergian ke Luar Negeri [Tidak Necessarily Menggunakan Layanan Perusahaan]
+- Asuransi Perjalanan : Apakah Pelanggan Membeli Paket Asuransi Perjalanan Selama Penawaran Pengenalan yang Diadakan pada Tahun 2019.
 
 ### Exploratory Data Analysis (EDA)
 
@@ -68,12 +68,12 @@ Proses persiapan data sangat penting dalam pengembangan model prediktif. Berikut
 ## Modeling
 Pada tahap pemodelan, beberapa algoritma yang digunakan adalah sebagai berikut:
 
-- Logistic Regression: Algoritma ini digunakan untuk tugas klasifikasi biner dan merupakan salah satu model yang paling sederhana dan mudah diinterpretasi. Kelebihannya termasuk interpretasi yang mudah, cocok untuk data yang memiliki fitur kategorikal, dan relatif cepat dalam pelatihan. Namun, kelemahannya adalah linearitas yang kuat, yang berarti mungkin tidak mampu menangani hubungan yang kompleks antara fitur dan target.
-- RandomForestClassifier: Algoritma ini adalah ensambel dari pohon keputusan dan merupakan pilihan populer untuk klasifikasi. Kelebihannya termasuk kemampuan untuk menangani data dengan fitur yang tidak terstruktur atau tidak beraturan, serta toleran terhadap kelebihan fitting. Namun, kelemahannya adalah kompleksitas yang tinggi dan interpretasi yang sulit dibandingkan dengan model yang lebih sederhana seperti regresi logistik.
-- GradientBoostingClassifier: Algoritma ini juga merupakan ensambel dari pohon keputusan, tetapi menggunakan pendekatan yang berbeda dengan RandomForest. Gradient boosting bekerja dengan cara menambahkan model yang berurutan, di mana setiap model berusaha untuk memperbaiki kesalahan yang dibuat oleh model sebelumnya. Kelebihannya termasuk kemampuan untuk menangani data yang tidak teratur dan kompleksitas model yang dapat diatur melalui hiperparameter. Namun, kelemahannya adalah cenderung overfit jika tidak diatur dengan benar.
-- AdaBoostClassifier: Algoritma ini juga merupakan ensambel dari pohon keputusan, tetapi dengan pendekatan yang berbeda dari Gradient Boosting. Adaboost bekerja dengan cara memberikan bobot yang lebih besar pada sampel yang salah dikelasifikasi pada iterasi sebelumnya. Kelebihannya adalah kemampuan untuk menangani data yang tidak seimbang dan kemampuan untuk bekerja dengan baik dengan model yang sederhana. Namun, kelemahannya adalah rentan terhadap noise dan outlier dalam data.
+- **Logistic Regression**: Algoritma ini digunakan untuk tugas klasifikasi biner dan merupakan salah satu model yang paling sederhana dan mudah diinterpretasi. Kelebihannya termasuk interpretasi yang mudah, cocok untuk data yang memiliki fitur kategorikal, dan relatif cepat dalam pelatihan. Namun, kelemahannya adalah linearitas yang kuat, yang berarti mungkin tidak mampu menangani hubungan yang kompleks antara fitur dan target.
+- **RandomForestClassifier**: Algoritma ini adalah ensambel dari pohon keputusan dan merupakan pilihan populer untuk klasifikasi. Kelebihannya termasuk kemampuan untuk menangani data dengan fitur yang tidak terstruktur atau tidak beraturan, serta toleran terhadap kelebihan fitting. Namun, kelemahannya adalah kompleksitas yang tinggi dan interpretasi yang sulit dibandingkan dengan model yang lebih sederhana seperti regresi logistik.
+- **GradientBoostingClassifier**: Algoritma ini juga merupakan ensambel dari pohon keputusan, tetapi menggunakan pendekatan yang berbeda dengan RandomForest. Gradient boosting bekerja dengan cara menambahkan model yang berurutan, di mana setiap model berusaha untuk memperbaiki kesalahan yang dibuat oleh model sebelumnya. Kelebihannya termasuk kemampuan untuk menangani data yang tidak teratur dan kompleksitas model yang dapat diatur melalui hiperparameter. Namun, kelemahannya adalah cenderung overfit jika tidak diatur dengan benar.
+- **AdaBoostClassifier**: Algoritma ini juga merupakan ensambel dari pohon keputusan, tetapi dengan pendekatan yang berbeda dari Gradient Boosting. Adaboost bekerja dengan cara memberikan bobot yang lebih besar pada sampel yang salah dikelasifikasi pada iterasi sebelumnya. Kelebihannya adalah kemampuan untuk menangani data yang tidak seimbang dan kemampuan untuk bekerja dengan baik dengan model yang sederhana. Namun, kelemahannya adalah rentan terhadap noise dan outlier dalam data.
 
-Berdasarkan hasil pelatihan dan evaluasi, model GradientBoostingClassifier dipilih sebagai model terbaik dengan matriks evaluasi yang lebih tinggi dibandingkan model lainnya, terutama pada matriks ROC AUC dengan skor pelatihan 77% dan skor pengujian 75%.
+Berdasarkan hasil pelatihan dan evaluasi, model GradientBoostingClassifier dipilih sebagai model terbaik dengan matriks evaluasi yang lebih tinggi dibandingkan model lainnya, terutama pada matriks ROC AUC dengan skor pelatihan 77% dan skor pengujian 75%. Selain itu, dengan model GradientBoostingClassifier diperoleh bahwa AnnualIncome, FamilyMembers, dan Age adalah fitur-fitur yang memiliki kontribusi signifikan dalam memprediksi apakah seorang pelanggan akan membeli paket asuransi perjalanan. Oleh karena itu, fitur-fitur ini dianggap sebagai faktor penting dalam keputusan pembelian pelanggan.
 
 ## Evaluation
 Matriks evaluasi yang digunakan meliputi Accuracy, Precision, Recall, F1 Score, dan ROC AUC. Dari semua metrik tersebut, ROC AUC dipilih sebagai matriks evaluasi utama karena kemampuannya untuk mengukur false positif dan false negatif, yang sangat penting dalam kasus klasifikasi yang tidak seimbang. 

@@ -81,6 +81,6 @@ Matriks evaluasi yang digunakan meliputi Accuracy, Precision, Recall, F1 Score, 
 
 Dengan memperhatikan matriks evaluasi ini, model klasifikasi terbaik dapat dipilih berdasarkan kinerjanya dalam memisahkan kelas positif dan negatif. Model dengan ROC AUC yang lebih tinggi dianggap lebih baik dalam memprediksi keputusan pembelian asuransi perjalanan.
 
-![Comparison of ROC AUC between models](https://drive.google.com/file/d/1YkbUeUkemInxpR9Pm3v03cEVBcgxCrn7/view?usp=sharing)
+![Comparison of ROC AUC between models](assets/comparison-roc-auc.jpg)
 
 Berdasarkan hasil evaluasi data training, model GradientBoostingClassifier terpilih sebagai model terbaik dengan matriks evaluasi yang lebih tinggi, terutama pada matriks ROC AUC dengan skor pengujian sebesar 75% dan skor pelatihan sebesar 77%. Analisis lebih lanjut menunjukkan bahwa fitur AnnualIncome, FamilyMembers, dan Age memiliki kontribusi signifikan dalam memprediksi keputusan pembelian asuransi perjalanan.

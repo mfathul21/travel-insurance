@@ -31,14 +31,20 @@ Untuk menjawab pertanyaan tersebut, Anda akan membuat predictive modelling denga
 - Mengembangkan model pembelajaran mesin yang dapat memprediksi dengan akurasi tinggi apakah nasabah akan membeli asuransi perjalanan berdasarkan fitur-fitur yang telah diidentifikasi.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Data yang Anda gunakan pada proyek kali ini adalah "Travel Insurance Prediction Data" yang diunduh dari <a href="https://www.kaggle.com/datasets/tejashvi14/travel-insurance-prediction-data">Kaggle API</a>. Dataset ini memiliki 1987 baris dengan 9 fitur, yang terdiri fitur non-numerik seperti Employment Type, GraduateOrNot, FrequentFlyer, dan EverTravelledAbroad, serta fitur numerik seperti Age, AnnualIncome, FamilyMembers, dan ChronicDiseases. Kedelapan fitur ini adalah fitur yang akan Anda gunakan dalam menemukan pola pada data, sedangkan TravelInsurance merupakan fitur target.
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+### Berdasarkan informasi dari Kaggle, fitur-fitur pada Travel Insurance dataset adalah sebagai berikut:
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+- `Age` : Usia Pelanggan
+- `Employment Type` : Sektor di Mana Pelanggan Bekerja
+- `GraduateOrNot` : Apakah Pelanggan Lulus Kuliah atau Tidak
+- `AnnualIncome` : Pendapatan Tahunan Pelanggan dalam Rupee India [Dibulatkan ke Nearest 50 Ribu Rupee]
+- `FamilyMembers` : Jumlah Anggota dalam Keluarga Pelanggan
+- `ChronicDiseases` : Apakah Pelanggan Menderita Penyakit atau Kondisi Mayor seperti Diabetes/Tekanan Darah Tinggi atau Asma, dll.
+- `FrequentFlyer` : Data yang Didapat Berdasarkan Riwayat Pelanggan dalam Membeli Tiket Pesawat di Setidaknya 4 Kali Berbeda dalam 2 Tahun Terakhir [2017-2019].
+- `EverTravelledAbroad` : Apakah Pelanggan Pernah Berpergian ke Luar Negeri [Tidak Necessarily Menggunakan Layanan Perusahaan]
+- `Asuransi Perjalanan` : Apakah Pelanggan Membeli Paket Asuransi Perjalanan Selama Penawaran Pengenalan yang Diadakan pada Tahun 2019.
+
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.

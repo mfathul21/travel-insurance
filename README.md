@@ -80,6 +80,8 @@ Statistika deskriptif untuk fitur kategorikal:
 ### Exploratory Data Analysis (EDA)
 
 Pada tahap EDA, dilakukan beberapa teknik visualisasi dan analisis univariat dan multivariat untuk memahami data lebih dalam:
+![Comparison of evaluation model](https://drive.google.com/uc?id=1sdcO4UFEhHxNnfhdGzbzXjpgBfQA-PPS)
+
 
 - **Countplot pada Data Kategori**: Mayoritas pelanggan bekerja di sektor swasta, telah lulus kuliah, tidak memiliki status FrequentFlyer, dan tidak pernah melakukan perjalanan ke luar negeri.
 - **Histplot pada Data Numerik**: Mayoritas pelanggan berusia sekitar 28 tahun, dengan pendapatan tahunan berkisar antara 300.000 hingga 1.800.000 rupee, dan memiliki 3 hingga 5 anggota keluarga.
@@ -113,4 +115,6 @@ Matriks evaluasi yang digunakan meliputi Accuracy, Precision, Recall, F1 Score, 
 
 Dengan memperhatikan matriks evaluasi ini, model klasifikasi terbaik dapat dipilih berdasarkan kinerjanya dalam memisahkan kelas positif dan negatif. Model dengan ROC AUC yang lebih tinggi dianggap lebih baik dalam memprediksi keputusan pembelian asuransi perjalanan.
 
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://drive.google.com/uc?id=1YkbUeUkemInxpR9Pm3v03cEVBcgxCrn7)  Berdasarkan hasil evaluasi data training, model GradientBoostingClassifier terpilih sebagai model terbaik dengan matriks evaluasi yang lebih tinggi, terutama pada matriks ROC AUC dengan skor pengujian sebesar 75% dan skor pelatihan sebesar 77%. Analisis lebih lanjut menunjukkan bahwa fitur AnnualIncome, FamilyMembers, dan Age memiliki kontribusi signifikan dalam memprediksi keputusan pembelian asuransi perjalanan.
+![Comparison of evaluation model](https://drive.google.com/uc?id=1YkbUeUkemInxpR9Pm3v03cEVBcgxCrn7)  
+
+Berdasarkan hasil evaluasi data training, model GradientBoostingClassifier terpilih sebagai model terbaik dengan matriks evaluasi yang lebih tinggi, terutama pada matriks ROC AUC dengan skor pengujian sebesar 75% dan skor pelatihan sebesar 77%. Analisis lebih lanjut menunjukkan bahwa fitur AnnualIncome, FamilyMembers, dan Age memiliki kontribusi signifikan dalam memprediksi keputusan pembelian asuransi perjalanan.

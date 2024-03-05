@@ -58,12 +58,14 @@ Proses persiapan data sangat penting dalam pengembangan model prediktif. Berikut
 - Standarisasi dengan StandarScaler pada Fitur Age, FamilyMembers, dan AnnualIncome: Standarisasi fitur numerik memastikan bahwa semua fitur memiliki skala yang serupa. Ini penting untuk algoritma yang sensitif terhadap skala, seperti regresi logistik atau SVM. Standarisasi juga membantu dalam konvergensi lebih cepat selama proses pembelajaran.
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
+Pada tahap pemodelan, beberapa algoritma yang digunakan adalah sebagai berikut:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+- Logistic Regression: Algoritma ini digunakan untuk tugas klasifikasi biner dan merupakan salah satu model yang paling sederhana dan mudah diinterpretasi. Kelebihannya termasuk interpretasi yang mudah, cocok untuk data yang memiliki fitur kategorikal, dan relatif cepat dalam pelatihan. Namun, kelemahannya adalah linearitas yang kuat, yang berarti mungkin tidak mampu menangani hubungan yang kompleks antara fitur dan target.
+- RandomForestClassifier: Algoritma ini adalah ensambel dari pohon keputusan dan merupakan pilihan populer untuk klasifikasi. Kelebihannya termasuk kemampuan untuk menangani data dengan fitur yang tidak terstruktur atau tidak beraturan, serta toleran terhadap kelebihan fitting. Namun, kelemahannya adalah kompleksitas yang tinggi dan interpretasi yang sulit dibandingkan dengan model yang lebih sederhana seperti regresi logistik.
+- GradientBoostingClassifier: Algoritma ini juga merupakan ensambel dari pohon keputusan, tetapi menggunakan pendekatan yang berbeda dengan RandomForest. Gradient boosting bekerja dengan cara menambahkan model yang berurutan, di mana setiap model berusaha untuk memperbaiki kesalahan yang dibuat oleh model sebelumnya. Kelebihannya termasuk kemampuan untuk menangani data yang tidak teratur dan kompleksitas model yang dapat diatur melalui hiperparameter. Namun, kelemahannya adalah cenderung overfit jika tidak diatur dengan benar.
+- AdaBoostClassifier: Algoritma ini juga merupakan ensambel dari pohon keputusan, tetapi dengan pendekatan yang berbeda dari Gradient Boosting. Adaboost bekerja dengan cara memberikan bobot yang lebih besar pada sampel yang salah dikelasifikasi pada iterasi sebelumnya. Kelebihannya adalah kemampuan untuk menangani data yang tidak seimbang dan kemampuan untuk bekerja dengan baik dengan model yang sederhana. Namun, kelemahannya adalah rentan terhadap noise dan outlier dalam data.
+
+Berdasarkan hasil pelatihan dan evaluasi, model GradientBoostingClassifier dipilih sebagai model terbaik dengan matriks evaluasi yang lebih tinggi dibandingkan model lainnya, terutama pada matriks ROC AUC dengan skor pelatihan 77% dan skor pengujian 75%.
 
 ## Evaluation
 Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.

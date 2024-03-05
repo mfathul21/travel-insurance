@@ -2,13 +2,19 @@
 
 ## Domain Proyek
 
-Industri pariwisata dan perjalanan telah mengalami perubahan yang signifikan akibat pandemi Covid-19. Selain mengganggu perjalanan global, pandemi ini juga meningkatkan kesadaran akan perlunya perlindungan tambahan seperti asuransi perjalanan. Di tengah perubahan ini, perusahaan-perusahaan tur dan perjalanan perlu memahami preferensi pelanggan mereka terkait asuransi perjalanan, termasuk perlindungan Covid-19.
+**Latar Belakang**
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-  
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
+Dalam industri perjalanan dan pariwisata, asuransi perjalanan merupakan komponen penting yang memberikan perlindungan untuk berbagai risiko yang terkait dengan perjalanan, seperti pembatalan perjalanan, keadaan darurat medis, kehilangan bagasi, dan penundaan penerbangan. Namun, tingkat konversi asuransi perjalanan bisa jadi rendah, dan memahami perilaku serta preferensi pelanggan sangat penting untuk meningkatkan penjualan asuransi perjalanan.
+
+Proyek ini bertujuan untuk membangun model prediksi asuransi perjalanan yang dapat memprediksi apakah pelanggan akan membeli asuransi perjalanan atau tidak berdasarkan berbagai fitur. Model ini akan membantu agen perjalanan dan perusahaan asuransi untuk mengidentifikasi pelanggan potensial, mempersonalisasi produk asuransi mereka, dan meningkatkan tingkat konversi mereka.
+
+**Mengapa dan bagaimana masalah tersebut harus diselesaikan?**
+
+Tingkat konversi asuransi perjalanan relatif rendah, dan ada kebutuhan untuk memahami perilaku dan preferensi pelanggan untuk meningkatkan penjualan asuransi perjalanan. Menganalisis fitur demografis dan fitur terkait perjalanan nasabah, seperti usia, jenis kelamin, tujuan, durasi perjalanan, dan frekuensi perjalanan, dapat memberikan wawasan tentang kemungkinan mereka untuk membeli asuransi perjalanan.
+
+Namun, menganalisis fitur-fitur ini secara manual untuk setiap pelanggan dapat memakan waktu dan rentan terhadap kesalahan. Oleh karena itu, diperlukan model prediksi otomatis dan akurat yang dapat menganalisis fitur-fitur ini dan memprediksi kemungkinan nasabah untuk membeli asuransi perjalanan.
+
+Referensi: [Predicting Travel Insurance Purchases in an Insurance Firm through Machine Learning Methods after COVID-19]([https://scholar.google.com/](https://www.researchgate.net/publication/373895975_Predicting_Travel_Insurance_Purchases_in_an_Insurance_Firm_through_Machine_Learning_Methods_after_COVID-19)) 
 
 ## Business Understanding
 

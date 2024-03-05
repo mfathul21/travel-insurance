@@ -80,7 +80,7 @@ Statistika deskriptif untuk fitur kategorikal:
 ### Exploratory Data Analysis (EDA)
 
 Pada tahap EDA, dilakukan beberapa teknik visualisasi dan analisis univariat dan multivariat untuk memahami data lebih dalam:
-![Comparison of evaluation model](https://drive.google.com/uc?id=1sdcO4UFEhHxNnfhdGzbzXjpgBfQA)
+![Comparison of evaluation model](https://drive.google.com/uc?id=1sdcO4UFEhHxNnfhdGzbzXjpgBfQA-PPS)
 
 
 - **Countplot pada Data Kategori**: Mayoritas pelanggan bekerja di sektor swasta, telah lulus kuliah, tidak memiliki status FrequentFlyer, dan tidak pernah melakukan perjalanan ke luar negeri.

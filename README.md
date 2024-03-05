@@ -33,7 +33,7 @@ Untuk menjawab pertanyaan tersebut, Anda akan membuat predictive modelling denga
 ## Data Understanding
 Data yang Anda gunakan pada proyek kali ini adalah "Travel Insurance Prediction Data" yang diunduh dari <a href="https://www.kaggle.com/datasets/tejashvi14/travel-insurance-prediction-data">Kaggle API</a>. Dataset ini memiliki 1987 baris dengan 9 fitur, yang terdiri fitur non-numerik seperti Employment Type, GraduateOrNot, FrequentFlyer, dan EverTravelledAbroad, serta fitur numerik seperti Age, AnnualIncome, FamilyMembers, dan ChronicDiseases. Kedelapan fitur ini adalah fitur yang akan Anda gunakan dalam menemukan pola pada data, sedangkan TravelInsurance merupakan fitur target.
 
-### Berdasarkan informasi dari Kaggle, fitur-fitur pada Travel Insurance dataset adalah sebagai berikut:
+Berdasarkan informasi dari Kaggle, fitur-fitur pada Travel Insurance dataset adalah sebagai berikut:
 
 - Age : Usia Pelanggan
 - Employment Type : Sektor di Mana Pelanggan Bekerja

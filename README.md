@@ -145,8 +145,6 @@ Dari matriks tersebut, dapat dilihat bahwa:
 
 ## Data Preparation
 
-## Persiapan Data
-
 Proses persiapan data adalah langkah penting dalam pengembangan model prediktif. Berikut adalah langkah-langkah detail yang dilakukan dalam proses persiapan data:
 
 - **Menghapus Data Duplikat**: Terdapat 738 baris data duplikat yang diidentifikasi dan dihapus untuk menghindari bias dalam model. Data duplikat dapat memengaruhi kinerja model dengan meningkatkan pentingnya observasi tertentu.
@@ -157,14 +155,55 @@ Proses persiapan data adalah langkah penting dalam pengembangan model prediktif.
 
 ## Modeling
 
-Pada tahap pemodelan, digunakan beberapa algoritma sebagai berikut:
+Pada tahap pemodelan, digunakan empat algoritma yang berbeda, yaitu Logistic Regression, RandomForestClassifier, GradientBoostingClassifier, dan AdaBoostClassifier. Berikut adalah alasan pemilihan dan detail setiap model:
 
-- **Logistic Regression**: Cocok untuk klasifikasi biner dengan interpretasi yang mudah, namun cenderung kurang fleksibel dalam menangani hubungan yang kompleks.
-- **RandomForestClassifier**: Ensambel pohon keputusan yang mampu menangani data tidak terstruktur, namun kompleksitas modelnya lebih tinggi.
-- **GradientBoostingClassifier**: Ensambel pohon keputusan yang memperbaiki kesalahan secara berurutan, dapat menangani data yang tidak teratur, namun cenderung overfit jika tidak diatur dengan baik.
-- **AdaBoostClassifier**: Ensambel pohon keputusan yang memberikan bobot pada sampel yang salah diklasifikasi pada iterasi sebelumnya, cocok untuk menangani data tidak seimbang namun rentan terhadap noise dan outlier.
+### 1. Logistic Regression:
+- **Alasan Pemilihan**: Dipilih karena interpretasi yang mudah dan cocok untuk klasifikasi biner.
+- **Kelebihan**:
+  - Mudah diinterpretasikan: Menghasilkan koefisien untuk setiap fitur yang dapat diinterpretasikan secara langsung.
+  - Efisien dalam waktu komputasi: Cocok untuk dataset besar karena memiliki kompleksitas waktu linier.
+- **Kekurangan**:
+  - Linear: Kurang fleksibel dalam menangani hubungan yang kompleks antara fitur dan target.
+- **Parameter**: 
+  - Penalty: 'l2' (default), digunakan untuk mencegah overfitting dengan menerapkan regularisasi L2.
+  - Max_iter: 100 (default), jumlah iterasi maksimum untuk konvergensi algoritma.
 
-Model GradientBoostingClassifier dipilih sebagai model terbaik dengan matriks evaluasi yang lebih tinggi, terutama pada matriks ROC AUC dengan skor 77%, menggunakan teknik Cross Validation pada data training.
+### 2. RandomForestClassifier:
+- **Alasan Pemilihan**: Dipilih karena kemampuannya dalam menangani data tidak terstruktur dan menghasilkan model yang kuat.
+- **Kelebihan**:
+  - Tidak memerlukan asumsi tentang distribusi data: Cocok untuk dataset yang tidak terstruktur atau memiliki asumsi yang tidak terpenuhi.
+  - Mampu menangani fitur interaksi: Dapat menangani hubungan non-linear antara fitur dan target.
+- **Kekurangan**:
+  - Cenderung kompleks: Model dapat menjadi sulit untuk diinterpretasi, terutama dengan jumlah pohon yang besar.
+- **Parameter**: 
+  - N_estimators: 300, jumlah pohon keputusan dalam ensemble, digunakan untuk meningkatkan kinerja model.
+  - Max_depth: 10, kedalaman maksimum dari setiap pohon, mengontrol kompleksitas model.
+  - Min_samples_leaf: 4, jumlah sampel minimum yang dibutuhkan di setiap leaf node.
+  - Min_samples_split: 2, jumlah sampel minimum yang dibutuhkan untuk membagi node dalam pohon.
+
+### 3. GradientBoostingClassifier:
+- **Alasan Pemilihan**: Dipilih karena kemampuannya dalam memperbaiki kesalahan secara berurutan dan toleran terhadap data yang tidak teratur.
+- **Kelebihan**:
+  - Kinerja yang tinggi: Dapat menghasilkan model dengan kinerja yang sangat baik dalam banyak kasus.
+  - Toleran terhadap data yang tidak teratur: Cocok untuk dataset dengan fitur-fitur yang tidak teratur atau kompleks.
+- **Kekurangan**:
+  - Sensitif terhadap overfitting: Rentan terhadap overfitting, terutama jika jumlah iterasi (n_estimators) terlalu tinggi.
+- **Parameter**: 
+  - Learning_rate: 0.1, laju pembelajaran yang mengontrol kontribusi setiap pohon keputusan.
+  - Max_depth: 3, kedalaman maksimum dari setiap pohon, mengontrol kompleksitas model.
+  - N_estimators: 100, jumlah pohon keputusan dalam ensemble, mengontrol jumlah iterasi.
+
+### 4. AdaBoostClassifier:
+- **Alasan Pemilihan**: Dipilih karena kemampuannya memberikan bobot pada sampel yang salah diklasifikasi pada iterasi sebelumnya, cocok untuk menangani data tidak seimbang.
+- **Kelebihan**:
+  - Menangani data tidak seimbang: Cocok untuk dataset dengan perbedaan yang signifikan dalam jumlah sampel antara kelas.
+  - Stabilitas: Cenderung tidak overfit dan dapat berfungsi baik tanpa perlu penyetelan parameter yang rumit.
+- **Kekurangan**:
+  - Rentan terhadap noise dan outlier: Kinerjanya dapat menurun jika terdapat banyak noise atau outlier dalam data.
+- **Parameter**: 
+  - N_estimators: 100, jumlah estimator yang digunakan dalam ensemble.
+
+Model GradientBoostingClassifier dipilih sebagai model terbaik karena mencapai skor ROC AUC tertinggi sebesar 77% pada data training dengan teknik Cross Validation. Model ini memiliki kinerja yang baik dalam menangani kompleksitas data dan memiliki kekuatan dalam memperbaiki kesalahan secara berurutan. 
 
 ## Evaluation
 

@@ -137,7 +137,7 @@ Berdasarkan analisis visual, terlihat bahwa pelanggan yang pernah melakukan perj
 
 ![Pairplot of Numerical Features](https://drive.google.com/uc?id=1dCJtGTJqnTpf3zszRxoLlaxiZlRju2rH)
 
-Berdasarkan grafik, diperoleh bahwa tidak terdapat pola menarik yang menunjukkan hubungan dari TravelInsurance dengan fitur-fitur numerik lainnya.
+Berdasarkan grafik, tidak terlihat pola menarik yang menunjukkan hubungan antara TravelInsurance dengan fitur-fitur numerik lainnya.
 
 **Heatmap Correlation of Numerical Features**
 

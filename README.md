@@ -105,17 +105,38 @@ Mayoritas pelanggan, sekitar 70%, tidak memiliki status FrequentFlyer. Ini menun
 
 80% pelanggan tidak pernah melakukan perjalanan ke luar negeri. Hal ini menunjukkan bahwa mayoritas pelanggan memiliki pengalaman perjalanan yang terbatas di luar negeri, yang dapat memengaruhi minat mereka terhadap pembelian paket asuransi perjalanan.
 
+**Histplot of Numerical Features**
+
 ![Histplot of Numerical Features](https://drive.google.com/uc?id=1pzWwJ_Jnihq3khEqAROKPhL8PBR14QgT)
-![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q)
-![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q)
-![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q)
-![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q)
 
+Berdasarkan histogram di atas, diperoleh beberapa informasi, antara lain:
 
-- **Countplot pada Data Kategori**: Mayoritas pelanggan bekerja di sektor swasta, telah lulus kuliah, tidak memiliki status FrequentFlyer, dan tidak pernah melakukan perjalanan ke luar negeri.
-- **Histplot pada Data Numerik**: Mayoritas pelanggan berusia sekitar 28 tahun, dengan pendapatan tahunan berkisar antara 300.000 hingga 1.800.000 rupee, dan memiliki 3 hingga 5 anggota keluarga.
-- **Barplot Stacked pada Data Kategori dengan Hue TravelInsurance**: Pelanggan yang pernah melakukan perjalanan ke luar negeri cenderung lebih membeli asuransi perjalanan.
-- **Pairplot dan Heatmap Correlation pada Data Numerik**: Terdapat korelasi positif yang rendah hingga sedang antara Age, AnnualIncome, dan FamilyMembers dengan keputusan pembelian asuransi perjalanan (TravelInsurance). Korelasi negatif yang rendah terlihat pada fitur ChronicDiseases.
+- Mayoritas pelanggan berusia sekitar 28 tahun.
+- Rentang pendapatan tahunan pelanggan berkisar antara 300.000 rupee hingga 1.800.000 rupee.
+- Jumlah anggota keluarga pelanggan didominasi oleh pelanggan dengan jumlah anggota keluarga berkisar antara 3 hingga 5 orang.
+- Sebagian besar pelanggan tidak menderita penyakit kronis.
+- Terdapat ketimpangan pada label atau target fitur, yaitu TravelInsurance, dengan jumlah pelanggan yang membeli paket asuransi perjalanan lebih sedikit dibandingkan dengan pelanggan yang tidak membeli.
+
+**Barplot Stacked of Categorycal Features by TravelInsurance**
+
+![Barplot Stacked of Employment Type by TravelInsurance](https://drive.google.com/uc?id=1fUh0oJ2pz8DB0_HTjRiVt97jetnLxFza)
+![Barplot Stacked of GraduateOrNot by TravelInsurance](https://drive.google.com/uc?id=1zr2ztG4V5JTulnjoE1jHoAlnPnFH7Ems)
+![Barplot Stacked of FrequentFlyer by TravelInsurance](https://drive.google.com/uc?id=1uQ3K-LVugbwljGWMvjwod3P3CCk1Fz8M)
+![Barplot Stacked of EverTravelledAbroad by TravelInsurance](https://drive.google.com/uc?id=1LH1rVLqjHzEGtW5xhQjF2Pc6pgj63z2z)
+
+Berdasarkan analisis visual, terlihat bahwa pelanggan yang pernah melakukan perjalanan ke luar negeri memiliki kemungkinan lebih tinggi untuk membeli paket asuransi perjalanan. Proporsi pelanggan yang membeli asuransi perjalanan lebih tinggi di antara mereka yang pernah bepergian ke luar negeri dibandingkan dengan mereka yang tidak. Hal ini menunjukkan adanya hubungan yang signifikan antara perjalanan ke luar negeri dan keputusan pembelian asuransi perjalanan. Selain itu, analisis juga menunjukkan bahwa tidak ada pengaruh yang signifikan dari fitur lain terhadap keputusan pembelian asuransi perjalanan.
+
+**Pairplot of Numerical Features**
+
+![Pairplot of Numerical Features](https://drive.google.com/uc?id=1dCJtGTJqnTpf3zszRxoLlaxiZlRju2rH)
+![Heatmap Correlation of Numerical Features](https://drive.google.com/uc?id=1_xgLdYvrE6MRLTifWpDod6kXumXVZ5zZ)
+
+Dari matriks tersebut, dapat dilihat bahwa:
+
+- Age: memiliki korelasi positif yang rendah dengan keputusan untuk membeli asuransi perjalanan (TravelInsurance).
+- AnnualIncome: memiliki korelasi positif yang sedang dengan keputusan untuk membeli asuransi perjalanan.
+- FamilyMembers: memiliki korelasi positif yang rendah dengan keputusan untuk membeli asuransi perjalanan.
+- ChronicDiseases: memiliki korelasi negatif yang rendah dengan keputusan untuk membeli asuransi perjalanan.
 
 ## Data Preparation
 

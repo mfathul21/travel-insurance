@@ -14,8 +14,6 @@ Tingkat konversi asuransi perjalanan yang rendah menunjukkan perlunya pemahaman 
 
 Namun, menganalisis fitur-fitur ini secara manual untuk setiap pelanggan dapat menjadi proses yang lambat dan rentan terhadap kesalahan. Oleh karena itu, pengembangan model prediksi yang otomatis dan akurat sangat diperlukan untuk mengidentifikasi pola-pola yang tersembunyi dalam data dan memprediksi kecenderungan pembelian pelanggan [2]-[3].
 
-Referensi: [Predicting Travel Insurance Purchases in an Insurance Firm through Machine Learning Methods after COVID-19]
-
 ## Business Understanding
 
 ### Problem Statements

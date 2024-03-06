@@ -210,15 +210,9 @@ Pada tahap pemodelan, digunakan empat algoritma yang berbeda, yaitu Logistic Reg
 - **Parameter**: 
   - N_estimators: 100, jumlah estimator yang digunakan dalam ensemble.
 
-Model GradientBoostingClassifier dipilih sebagai model terbaik karena mencapai skor ROC AUC tertinggi sebesar 77% pada data training dengan teknik Cross Validation. Model ini memiliki kinerja yang baik dalam menangani kompleksitas data dan memiliki kekuatan dalam memperbaiki kesalahan secara berurutan. 
+Model GradientBoostingClassifier dipilih sebagai model terbaik sementara karena mencapai skor ROC AUC tertinggi sebesar 77% pada data training dengan teknik Cross Validation. Model ini memiliki kinerja yang baik dalam menangani kompleksitas data dan memiliki kekuatan dalam memperbaiki kesalahan secara berurutan. 
 
 ## Evaluation
-
-Dalam evaluasi model, digunakan beberapa metrik evaluasi penting, termasuk Accuracy, Precision, Recall, F1 Score, dan ROC AUC. ROC AUC dipilih sebagai metrik evaluasi utama karena kemampuannya dalam mengukur kinerja model pada klasifikasi yang tidak seimbang, seperti dalam kasus ini.
-
-### Hasil Evaluasi Model:
-
-### Evaluation
 
 Dalam proyek ini, kami menggunakan beberapa metrik evaluasi untuk mengukur kinerja model prediksi asuransi perjalanan:
 
@@ -235,7 +229,7 @@ Dalam proyek ini, kami menggunakan beberapa metrik evaluasi untuk mengukur kiner
 | GradientBoostingClassifier   | 0.704    | 0.651163  | 0.56   | 0.602151 | 0.746767      |
 | AdaBoostClassifier           | 0.684    | 0.617978  | 0.55   | 0.582011 | 0.718967      |
 
-Berdasarkan hasil evaluasi model dengan data test, terlihat bahwa model cenderung lebih baik dalam memprediksi kelas negatif (pelanggan yang tidak membeli asuransi perjalanan) daripada kelas positif (pelanggan yang membeli asuransi perjalanan). Hal ini dapat dilihat dari nilai Recall yang sedikit lebih rendah dibandingkan dengan Precision. Selain itu, dengan menggunakan ROC AUC ebagai matriks evaluasi utama karena kemampuannya dalam mengukur false positif dan false negatif berikut visualisasi perbandingan ROC AUC untuk data train dan test pada setiap model.
+Berdasarkan hasil evaluasi model dengan data test, terlihat bahwa model cenderung lebih baik dalam memprediksi kelas negatif (pelanggan yang tidak membeli asuransi perjalanan) daripada kelas positif (pelanggan yang membeli asuransi perjalanan). Hal ini dapat dilihat dari nilai Recall yang sedikit lebih rendah dibandingkan dengan Precision. Selain itu, dengan menggunakan ROC AUC sebagai matriks evaluasi utama karena kemampuannya dalam mengukur false positif dan false negatif. Berikut visualisasi perbandingan ROC AUC untuk data train dan test pada setiap model.
 
 ![Comparison of evaluation model](https://drive.google.com/uc?id=1YkbUeUkemInxpR9Pm3v03cEVBcgxCrn7)  
 

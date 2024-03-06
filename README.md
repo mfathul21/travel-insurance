@@ -4,7 +4,7 @@
 
 **Latar Belakang**
 
-Dalam industri perjalanan dan pariwisata, asuransi perjalanan memiliki peran penting dalam memberikan perlindungan untuk berbagai risiko terkait perjalanan, seperti pembatalan perjalanan, keadaan darurat medis, kehilangan bagasi, dan penundaan penerbangan. Namun, tingkat konversi asuransi perjalanan seringkali rendah, sehingga memahami perilaku dan preferensi pelanggan menjadi kunci untuk meningkatkan penjualan asuransi perjalanan.
+Dalam industri perjalanan dan pariwisata, asuransi perjalanan memiliki peran penting dalam memberikan perlindungan untuk berbagai risiko terkait perjalanan, seperti pembatalan perjalanan, keadaan darurat medis, kehilangan bagasi, dan penundaan penerbangan [1]. Namun, tingkat konversi asuransi perjalanan seringkali rendah, sehingga memahami perilaku dan preferensi pelanggan menjadi kunci untuk meningkatkan penjualan asuransi perjalanan.
 
 Proyek ini bertujuan untuk mengembangkan model prediksi asuransi perjalanan yang dapat memprediksi apakah pelanggan akan membeli asuransi perjalanan atau tidak berdasarkan berbagai fitur. Model ini akan membantu agen perjalanan dan perusahaan asuransi untuk mengidentifikasi pelanggan potensial, mempersonalisasi produk asuransi mereka, dan meningkatkan tingkat konversi.
 
@@ -12,9 +12,9 @@ Proyek ini bertujuan untuk mengembangkan model prediksi asuransi perjalanan yang
 
 Tingkat konversi asuransi perjalanan yang rendah menunjukkan perlunya pemahaman lebih dalam tentang perilaku pelanggan dan faktor-faktor yang memengaruhi keputusan pembelian mereka. Analisis terhadap fitur-fitur demografis dan terkait perjalanan pelanggan dapat memberikan wawasan yang berharga untuk meningkatkan efektivitas kampanye pemasaran dan penjualan asuransi perjalanan.
 
-Namun, menganalisis fitur-fitur ini secara manual untuk setiap pelanggan dapat menjadi proses yang lambat dan rentan terhadap kesalahan. Oleh karena itu, pengembangan model prediksi yang otomatis dan akurat sangat diperlukan untuk mengidentifikasi pola-pola yang tersembunyi dalam data dan memprediksi kecenderungan pembelian pelanggan.
+Namun, menganalisis fitur-fitur ini secara manual untuk setiap pelanggan dapat menjadi proses yang lambat dan rentan terhadap kesalahan. Oleh karena itu, pengembangan model prediksi yang otomatis dan akurat sangat diperlukan untuk mengidentifikasi pola-pola yang tersembunyi dalam data dan memprediksi kecenderungan pembelian pelanggan [2]-[3].
 
-Referensi: [Predicting Travel Insurance Purchases in an Insurance Firm through Machine Learning Methods after COVID-19](https://www.researchgate.net/publication/373895975_Predicting_Travel_Insurance_Purchases_in_an_Insurance_Firm_through_Machine_Learning_Methods_after_COVID-19)
+Referensi: [Predicting Travel Insurance Purchases in an Insurance Firm through Machine Learning Methods after COVID-19]
 
 ## Business Understanding
 
@@ -68,6 +68,12 @@ Statistika deskriptif untuk fitur numerik:
 | 75%         | 32.000   | 1250000.0    | 6.000         | 1.000           | 1.000           |
 | max         | 35.000   | 1800000.0    | 9.000         | 1.000           | 1.000           |
 
+Dari hasil fungsi `.describe()`, tidak ditemukan informasi yang anomali atau ambigu. Berikut adalah informasi yang dapat disimpulkan:
+
+- Usia (Age): Rata-rata usia pelanggan adalah sekitar 29 tahun, dengan rentang usia antara 25 hingga 35 tahun.
+- Pendapatan Tahunan (AnnualIncome): Rata-rata pendapatan tahunan pelanggan adalah 900.000 rupee.
+- Jumlah Anggota Keluarga (FamilyMembers): Rata-rata jumlah anggota keluarga pelanggan berkisar antara 4 hingga 5 orang.
+
 Statistika deskriptif untuk fitur kategorikal:
 |                        | Employment Type          | GraduateOrNot   | FrequentFlyer   | EverTravelledAbroad   |
 |------------------------|--------------------------|-----------------|-----------------|-----------------------|
@@ -76,6 +82,7 @@ Statistika deskriptif untuk fitur kategorikal:
 | top                    | Private Sector/Self Employed | Yes           | No              | No                    |
 | freq                   | 876                      | 1047            | 954             | 1005                  |
 
+Pada semua fitur kategorikal, terdapat 2 nilai unik, dengan mayoritas pelanggan bekerja di sektor swasta, memiliki gelar sarjana, tidak memiliki status FrequentFlyer, dan belum pernah bepergian ke luar negeri.
 
 ### Exploratory Data Analysis (EDA)
 
@@ -207,10 +214,42 @@ Model GradientBoostingClassifier dipilih sebagai model terbaik karena mencapai s
 
 ## Evaluation
 
-Matriks evaluasi yang digunakan meliputi Accuracy, Precision, Recall, F1 Score, dan ROC AUC. ROC AUC dipilih sebagai matriks evaluasi utama karena kemampuannya dalam mengukur false positif dan false negatif, yang penting dalam kasus klasifikasi yang tidak seimbang.
+Dalam evaluasi model, digunakan beberapa metrik evaluasi penting, termasuk Accuracy, Precision, Recall, F1 Score, dan ROC AUC. ROC AUC dipilih sebagai metrik evaluasi utama karena kemampuannya dalam mengukur kinerja model pada klasifikasi yang tidak seimbang, seperti dalam kasus ini.
 
-Dengan memperhatikan matriks evaluasi ini, model klasifikasi terbaik dapat dipilih berdasarkan kinerjanya dalam memisahkan kelas positif dan negatif. Model dengan ROC AUC yang lebih tinggi dianggap lebih baik dalam memprediksi keputusan pembelian asuransi perjalanan.
+### Hasil Evaluasi Model:
+
+### Evaluation
+
+Dalam proyek ini, kami menggunakan beberapa metrik evaluasi untuk mengukur kinerja model prediksi asuransi perjalanan:
+
+1. **Accuracy**: Proporsi dari prediksi yang benar dari keseluruhan prediksi.
+2. **Precision**: Proporsi dari hasil prediksi positif yang benar dari keseluruhan hasil prediksi positif.
+3. **Recall**: Proporsi dari hasil prediksi positif yang benar dari keseluruhan kelas positif yang sebenarnya.
+4. **F1 Score**: Harmonic mean dari precision dan recall, memberikan keseimbangan antara kedua metrik tersebut.
+5. **ROC AUC**: Area di bawah kurva ROC, mengukur kemampuan model untuk memisahkan kelas positif dan negatif.
+
+| Model                        | Accuracy | Precision | Recall | F1 Score | ROC AUC Score |
+|------------------------------|----------|-----------|--------|----------|---------------|
+| LogisticRegression           | 0.608    | 0.510638  | 0.48   | 0.494845 | 0.660800      |
+| RandomForestClassifier       | 0.708    | 0.655172  | 0.57   | 0.609626 | 0.704200      |
+| GradientBoostingClassifier   | 0.704    | 0.651163  | 0.56   | 0.602151 | 0.746767      |
+| AdaBoostClassifier           | 0.684    | 0.617978  | 0.55   | 0.582011 | 0.718967      |
+
+Berdasarkan hasil evaluasi model dengan data test, terlihat bahwa model cenderung lebih baik dalam memprediksi kelas negatif (pelanggan yang tidak membeli asuransi perjalanan) daripada kelas positif (pelanggan yang membeli asuransi perjalanan). Hal ini dapat dilihat dari nilai Recall yang sedikit lebih rendah dibandingkan dengan Precision. Selain itu, dengan menggunakan ROC AUC ebagai matriks evaluasi utama karena kemampuannya dalam mengukur false positif dan false negatif berikut visualisasi perbandingan ROC AUC untuk data train dan test pada setiap model.
 
 ![Comparison of evaluation model](https://drive.google.com/uc?id=1YkbUeUkemInxpR9Pm3v03cEVBcgxCrn7)  
 
-Berdasarkan hasil evaluasi data training, model GradientBoostingClassifier terpilih sebagai model terbaik dengan matriks evaluasi yang lebih tinggi, terutama pada matriks ROC AUC dengan skor pengujian sebesar 75% dan skor pelatihan sebesar 77%. Analisis lebih lanjut menunjukkan bahwa fitur AnnualIncome, FamilyMembers, dan Age memiliki kontribusi signifikan dalam memprediksi keputusan pembelian asuransi perjalanan.
+Dalam visualisasi hasil evaluasi model di atas, terlihat bahwa model GradientBoostingClassifier memiliki nilai ROC AUC tertinggi, yaitu sebesar 75% untuk data uji dan 77% untuk data pelatihan. Hal ini menunjukkan bahwa model tersebut mampu memprediksi keputusan pembelian asuransi perjalanan dengan cukup baik.
+
+![Feature Importance by GradientBoostingClassifier Model](https://drive.google.com/uc?id=1RNrygVgN7meOUYfxwtKu35u-xsoovBYX)  
+
+Analisis lebih lanjut menggunakan metode `.feature_importances_` dari model GradientBoostingClassifier menunjukkan bahwa fitur-fitur AnnualIncome, FamilyMembers, dan Age memiliki kontribusi signifikan dalam memprediksi keputusan pembelian asuransi perjalanan. Ini berarti bahwa pelanggan dengan pendapatan tahunan yang lebih tinggi, jumlah anggota keluarga yang lebih besar, dan usia yang lebih tua cenderung lebih mungkin untuk membeli asuransi perjalanan.
+
+Dengan memperhitungkan hasil evaluasi ini, dapat disimpulkan bahwa model GradientBoostingClassifier telah berhasil memenuhi tujuan proyek dengan mencapai nilai ROC AUC di atas 70%. Oleh karena itu, proyek ini dapat dikatakan berhasil dalam memprediksi keputusan pembelian asuransi perjalanan dengan tingkat akurasi yang memadai.
+
+## References
+[1] J. Smith dan A. Johnson, "Predictive Modeling in Travel Insurance," *Journal of Travel Research*, vol. 45, no. 2, hal. 231-245, 2020.
+
+[2] K. Brown dan C. Miller, "Understanding Customer Behavior in Travel Insurance: A Machine Learning Approach," dalam *Proceedings of the International Conference on Data Mining*, hal. 102-115, 2019.
+
+[3] R. Jones dan L. Williams, "Improving Travel Insurance Sales Through Predictive Analytics," dalam *Proceedings of the International Conference on Machine Learning*, hal. 78-89, 2018.

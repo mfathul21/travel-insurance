@@ -83,7 +83,12 @@ Pada tahap EDA, dilakukan beberapa teknik visualisasi dan analisis univariat dan
 
 ![Comparison of evaluation model](https://drive.google.com/uc?id=17WAG9Z7I4umemnUYa7ulwpq_ognGNHSs)
 ![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q) 
-![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q) 
+![EvertravelledAbroad Countplot](https://drive.google.com/uc?id=1Qew65rWnI8Kjeb1fU34apF3XqQ27x4lB) 
+![FrequentFlyer Countplot](https://drive.google.com/uc?id=14F-Z8RNcx1OOQFAJALAWCeWV9BIhuFaG)
+![Histplot of Numerical Features](https://drive.google.com/uc?id=1pzWwJ_Jnihq3khEqAROKPhL8PBR14QgT)
+![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q)
+![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q)
+![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q)
 ![Comparison of evaluation model](https://drive.google.com/uc?id=13FNkme7tAinSJfYocOCyScPgqFsKR7_Q)
 
 

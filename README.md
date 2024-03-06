@@ -30,7 +30,7 @@ Untuk menjawab pertanyaan tersebut, Anda akan membuat predictive modelling denga
 - Menggunakan metode .feature_importances_ dari model yang dipilih untuk menemukan fitur-fitur yang memiliki dampak paling signifikan terhadap keputusan pembelian asuransi perjalanan.
 - Membangun model prediktif dengan ROC AUC di atas 70% pada data uji. Dengan mencapai nilai ROC AUC tersebut, proyek dapat dikatakan berhasil karena model mampu memprediksi keputusan pembelian asuransi perjalanan dengan tingkat akurasi yang memadai.
 
-**Statement Solusi**
+### Solution Statement
 
 Untuk mencapai tujuan tersebut, langkah-langkah berikut akan diambil:
 
@@ -124,11 +124,16 @@ Berdasarkan histogram di atas, diperoleh beberapa informasi, antara lain:
 ![Barplot Stacked of FrequentFlyer by TravelInsurance](https://drive.google.com/uc?id=1uQ3K-LVugbwljGWMvjwod3P3CCk1Fz8M)
 ![Barplot Stacked of EverTravelledAbroad by TravelInsurance](https://drive.google.com/uc?id=1LH1rVLqjHzEGtW5xhQjF2Pc6pgj63z2z)
 
-Berdasarkan analisis visual, terlihat bahwa pelanggan yang pernah melakukan perjalanan ke luar negeri memiliki kemungkinan lebih tinggi untuk membeli paket asuransi perjalanan. Proporsi pelanggan yang membeli asuransi perjalanan lebih tinggi di antara mereka yang pernah bepergian ke luar negeri dibandingkan dengan mereka yang tidak. Hal ini menunjukkan adanya hubungan yang signifikan antara perjalanan ke luar negeri dan keputusan pembelian asuransi perjalanan. Selain itu, analisis juga menunjukkan bahwa tidak ada pengaruh yang signifikan dari fitur lain terhadap keputusan pembelian asuransi perjalanan.
+Berdasarkan analisis visual, terlihat bahwa pelanggan yang pernah melakukan perjalanan ke luar negeri cenderung memiliki kemungkinan lebih tinggi untuk membeli paket asuransi perjalanan dibandingkan dengan pelanggan yang belum pernah melakukan perjalanan ke luar negeri. Selain itu, terlihat juga bahwa pelanggan yang bekerja di sektor swasta, memiliki gelar sarjana, dan memiliki status FrequentFlyer cenderung memiliki kemungkinan lebih tinggi untuk membeli paket asuransi, meskipun perbedaannya tidak begitu signifikan.
 
 **Pairplot of Numerical Features**
 
 ![Pairplot of Numerical Features](https://drive.google.com/uc?id=1dCJtGTJqnTpf3zszRxoLlaxiZlRju2rH)
+
+Berdasarkan grafik, diperoleh bahwa tidak terdapat pola menarik yang menunjukkan hubungan dari TravelInsurance dengan fitur-fitur numerik lainnya.
+
+**Heatmap Correlation of Numerical Features**
+
 ![Heatmap Correlation of Numerical Features](https://drive.google.com/uc?id=1_xgLdYvrE6MRLTifWpDod6kXumXVZ5zZ)
 
 Dari matriks tersebut, dapat dilihat bahwa:
@@ -140,13 +145,15 @@ Dari matriks tersebut, dapat dilihat bahwa:
 
 ## Data Preparation
 
-Proses persiapan data sangat penting dalam pengembangan model prediktif. Berikut adalah langkah-langkah yang dilakukan dalam proses persiapan data:
+## Persiapan Data
 
-- **Drop Data Duplikat**: Terdapat 738 baris data duplikat yang perlu dihapus untuk menghindari bias dalam model.
-- **Encoding Data Kategorikal**: Fitur-fitur kategorikal diubah menjadi representasi numerik agar dapat digunakan dalam model pembelajaran mesin.
-- **Pemisahan Data Train dan Test**: Data dibagi menjadi set pelatihan dan pengujian dengan proporsi 80:20.
-- **Oversampling dengan Metode SMOTE**: Menyeimbangkan jumlah sampel antara kelas mayoritas dan minoritas menggunakan SMOTE.
-- **Standarisasi Fitur Numerik**: Fitur Age, FamilyMembers, dan AnnualIncome distandarisasi agar memiliki skala yang serupa.
+Proses persiapan data adalah langkah penting dalam pengembangan model prediktif. Berikut adalah langkah-langkah detail yang dilakukan dalam proses persiapan data:
+
+- **Menghapus Data Duplikat**: Terdapat 738 baris data duplikat yang diidentifikasi dan dihapus untuk menghindari bias dalam model. Data duplikat dapat memengaruhi kinerja model dengan meningkatkan pentingnya observasi tertentu.
+- **Encoding Data Kategorikal**: Fitur-fitur kategorikal diubah menjadi representasi numerik agar dapat digunakan dalam model pembelajaran mesin. Ini diperlukan karena sebagian besar algoritma pembelajaran mesin membutuhkan data input dalam bentuk numerik.
+- **Pemisahan Data menjadi Set Pelatihan dan Pengujian**: Data dibagi menjadi set pelatihan dan pengujian dengan rasio 80:20. Set pelatihan digunakan untuk melatih model, sementara set pengujian digunakan untuk mengevaluasi kinerjanya. Ini membantu menilai seberapa baik model menggeneralisasi data baru yang tidak terlihat.
+- **Oversampling dengan SMOTE**: Teknik Synthetic Minority Over-sampling Technique (SMOTE) digunakan untuk menyeimbangkan distribusi kelas dengan oversampling kelas minoritas. Teknik ini menghasilkan sampel sintetis untuk kelas minoritas untuk mengatasi masalah ketidakseimbangan kelas, yang dapat menyebabkan model yang bias.
+- **Standarisasi Fitur Numerik**: Fitur-fitur numerik seperti Usia, Jumlah Anggota Keluarga, dan Pendapatan Tahunan distandarisasi untuk memiliki mean 0 dan standar deviasi 1. Standarisasi penting untuk algoritma yang mengandalkan metrik jarak atau gradien, karena memastikan bahwa semua fitur memberikan kontribusi yang sama dalam proses pembelajaran model.
 
 ## Modeling
 

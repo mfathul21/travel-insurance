@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Muhammad Fathul Radhiansyah
+# Travel Insurance Prediction
 
 ## Domain Proyek
 

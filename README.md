@@ -112,7 +112,7 @@ Mayoritas pelanggan, sekitar 70%, tidak memiliki status FrequentFlyer. Ini menun
 
 **Histplot of Numerical Features**
 
-![Histplot of Numerical Features](https://drive.google.com/uc?id=1pzWwJ_Jnihq3khEqAROKPhL8PBR14QgT)
+<img src="https://github.com/mfathul21/travel-insurance/blob/main/assets/numeric-plot.jpg?raw=true" alt="Histplot of Numerical Features" width="800">
 
 Berdasarkan histogram di atas, diperoleh beberapa informasi, antara lain:
 
@@ -159,13 +159,13 @@ Berdasarkan hasil uji chi-squared dengan tingkat signifikansi 5%, ditemukan bahw
 
 **Pairplot of Numerical Features**
 
-![Pairplot of Numerical Features](https://drive.google.com/uc?id=1dCJtGTJqnTpf3zszRxoLlaxiZlRju2rH)
+<img src="https://github.com/mfathul21/travel-insurance/blob/main/assets/pairplot.jpg?raw=true" alt="Pairplot of Numerical Features" width="800">
 
 Berdasarkan grafik, tidak terlihat pola menarik yang menunjukkan hubungan antara TravelInsurance dengan fitur-fitur numerik lainnya.
 
 **Heatmap Correlation of Numerical Features**
 
-![Heatmap Correlation of Numerical Features](https://drive.google.com/uc?id=1_xgLdYvrE6MRLTifWpDod6kXumXVZ5zZ)
+<img src="https://github.com/mfathul21/travel-insurance/blob/main/assets/heatmap-correlations.jpg?raw=true" alt="Heatmap Correlation of Numerical Features" width="800">
 
 Dari matriks tersebut, dapat dilihat bahwa:
 
@@ -256,11 +256,11 @@ Dalam proyek ini, kami menggunakan beberapa metrik evaluasi untuk mengukur kiner
 
 Berdasarkan hasil evaluasi model dengan data test, terlihat bahwa model cenderung lebih baik dalam memprediksi kelas positif (pelanggan yang membeli asuransi perjalanan) daripada kelas negatif (pelanggan yang tidak membeli asuransi perjalanan). Hal ini dapat dilihat dari nilai Recall yang lebih rendah dibandingkan dengan Precision. Selain itu, dengan menggunakan ROC AUC sebagai matriks evaluasi utama karena kemampuannya dalam mengukur false positif dan false negatif. Berikut visualisasi perbandingan ROC AUC untuk data train dan test pada setiap model.
 
-![Comparison of evaluation model](https://drive.google.com/uc?id=1YkbUeUkemInxpR9Pm3v03cEVBcgxCrn7)  
+<img src="https://github.com/mfathul21/travel-insurance/blob/main/assets/comparison-model.jpg?raw=true" alt="Comparison of evaluation model" width="800">
 
 Dalam visualisasi hasil evaluasi model di atas, terlihat bahwa model GradientBoostingClassifier memiliki nilai ROC AUC tertinggi, yaitu sebesar 75% untuk data uji dan 76% untuk data pelatihan. Hal ini menunjukkan bahwa model tersebut mampu memprediksi keputusan pembelian asuransi perjalanan dengan cukup baik.
-
-![Feature Importance by GradientBoostingClassifier Model](https://drive.google.com/uc?id=1RNrygVgN7meOUYfxwtKu35u-xsoovBYX)  
+  
+<img src="https://github.com/mfathul21/travel-insurance/blob/main/assets/feature-importance.jpg?raw=true" alt="Feature Importance by GradientBoostingClassifier Model" width="800">
 
 Analisis lebih lanjut menggunakan metode `.feature_importances_` dari model GradientBoostingClassifier menunjukkan bahwa fitur-fitur AnnualIncome, FamilyMembers, dan Age memiliki kontribusi signifikan dalam memprediksi keputusan pembelian asuransi perjalanan. Ini berarti bahwa pelanggan dengan pendapatan tahunan yang lebih tinggi, jumlah anggota keluarga yang lebih besar, dan usia yang lebih tua cenderung lebih mungkin untuk membeli asuransi perjalanan.
 

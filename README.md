@@ -131,6 +131,32 @@ Berdasarkan histogram di atas, diperoleh beberapa informasi, antara lain:
 
 Berdasarkan analisis visual, terlihat bahwa pelanggan yang pernah melakukan perjalanan ke luar negeri cenderung memiliki kemungkinan lebih tinggi untuk membeli paket asuransi perjalanan dibandingkan dengan pelanggan yang belum pernah melakukan perjalanan ke luar negeri. Selain itu, terlihat juga bahwa pelanggan yang bekerja di sektor swasta, memiliki gelar sarjana, dan memiliki status FrequentFlyer cenderung memiliki kemungkinan lebih tinggi untuk membeli paket asuransi, meskipun perbedaannya tidak begitu signifikan.
 
+Oleh karena itu, akan dilakukan uji chi-squared menggunakan chi2_contingency untuk menentukan apakah terdapat hubungan statistik antara fitur kategori dan fitur target (Travel Insurance). Dengan tingkat signifikansi 5%, diasumsikan hipotesis berikut:
+
+- $H_0$: Tidak ada hubungan yang signifikan antara fitur kategori dan Travel Insurance.
+- $H_1$: Terdapat hubungan yang signifikan antara setidaknya satu fitur kategori dan Travel Insurance.
+
+### Hasil Uji Chi-Squared:
+
+- **Employment Type**
+  - p-value: 0.008
+  - Kesimpulan: Ada cukup bukti untuk menolak hipotesis nol. Terdapat hubungan yang signifikan antara Employment Type dan Travel Insurance.
+
+- **GraduateOrNot**
+  - p-value: 0.297
+  - Kesimpulan: Tidak ada cukup bukti untuk menolak hipotesis nol. Tidak terdapat hubungan yang signifikan antara GraduateOrNot dan Travel Insurance.
+
+- **FrequentFlyer**
+  - p-value: 9.21e-06
+  - Kesimpulan: Ada cukup bukti untuk menolak hipotesis nol. Terdapat hubungan yang signifikan antara FrequentFlyer dan Travel Insurance.
+
+- **EverTravelledAbroad**
+  - p-value: 4.00e-26
+  - Kesimpulan: Ada cukup bukti untuk menolak hipotesis nol. Terdapat hubungan yang signifikan antara EverTravelledAbroad dan Travel Insurance.
+
+Berdasarkan hasil uji chi-squared dengan tingkat signifikansi 5%, ditemukan bahwa terdapat hubungan yang signifikan antara beberapa fitur kategori dan Travel Insurance. Lebih spesifiknya, Employment Type, FrequentFlyer, dan EverTravelledAbroad memiliki hubungan yang signifikan dengan Travel Insurance. Namun, tidak terdapat hubungan yang signifikan antara GraduateOrNot dan Travel Insurance. Oleh karena itu, fitur-fitur seperti Employment Type, FrequentFlyer, dan EverTravelledAbroad mungkin memiliki pengaruh yang lebih besar terhadap keputusan untuk membeli asuransi perjalanan dibandingkan dengan status lulusan.
+
+
 **Pairplot of Numerical Features**
 
 ![Pairplot of Numerical Features](https://drive.google.com/uc?id=1dCJtGTJqnTpf3zszRxoLlaxiZlRju2rH)
@@ -152,6 +178,7 @@ Dari matriks tersebut, dapat dilihat bahwa:
 
 Proses persiapan data adalah langkah penting dalam pengembangan model prediktif. Berikut adalah langkah-langkah detail yang dilakukan dalam proses persiapan data:
 
+- **Feature Selection**: Memilih fitur-fitur yang paling relevan dan memberikan kontribusi signifikan dalam memprediksi target, yaitu Age, AnnualIncome, FamilyMembers, Employment Type, FrequentFlyer, dan EverTravelledAbroad.
 - **Menghapus Data Duplikat**: Terdapat 738 baris data duplikat yang diidentifikasi dan dihapus untuk menghindari bias dalam model. Data duplikat dapat memengaruhi kinerja model dengan meningkatkan pentingnya observasi tertentu.
 - **Encoding Data Kategorikal**: Fitur-fitur kategorikal diubah menjadi representasi numerik agar dapat digunakan dalam model pembelajaran mesin. Ini diperlukan karena sebagian besar algoritma pembelajaran mesin membutuhkan data input dalam bentuk numerik.
 - **Pemisahan Data menjadi Set Pelatihan dan Pengujian**: Data dibagi menjadi set pelatihan dan pengujian dengan rasio 80:20. Set pelatihan digunakan untuk melatih model, sementara set pengujian digunakan untuk mengevaluasi kinerjanya. Ini membantu menilai seberapa baik model menggeneralisasi data baru yang tidak terlihat.
@@ -220,18 +247,18 @@ Dalam proyek ini, kami menggunakan beberapa metrik evaluasi untuk mengukur kiner
 4. **F1 Score**: Harmonic mean dari precision dan recall, memberikan keseimbangan antara kedua metrik tersebut.
 5. **ROC AUC**: Area di bawah kurva ROC, mengukur kemampuan model untuk memisahkan kelas positif dan negatif.
 
-| Model                        | Accuracy | Precision | Recall | F1 Score | ROC AUC Score |
-|------------------------------|----------|-----------|--------|----------|---------------|
-| LogisticRegression           | 0.608    | 0.510638  | 0.48   | 0.494845 | 0.660800      |
-| RandomForestClassifier       | 0.708    | 0.655172  | 0.57   | 0.609626 | 0.704200      |
-| GradientBoostingClassifier   | 0.704    | 0.651163  | 0.56   | 0.602151 | 0.746767      |
-| AdaBoostClassifier           | 0.684    | 0.617978  | 0.55   | 0.582011 | 0.718967      |
+| Model                         | Accuracy | Precision | Recall | F1 Score | ROC AUC Score |
+|-------------------------------|----------|-----------|--------|----------|---------------|
+| LogisticRegression            | 0.596    | 0.495     | 0.490  | 0.492    | 0.661         |
+| RandomForestClassifier        | 0.728    | 0.700     | 0.560  | 0.622    | 0.711         |
+| GradientBoostingClassifier    | 0.748    | 0.768     | 0.530  | 0.627    | 0.757         |
+| AdaBoostClassifier            | 0.676    | 0.604     | 0.550  | 0.576    | 0.731         |
 
-Berdasarkan hasil evaluasi model dengan data test, terlihat bahwa model cenderung lebih baik dalam memprediksi kelas negatif (pelanggan yang tidak membeli asuransi perjalanan) daripada kelas positif (pelanggan yang membeli asuransi perjalanan). Hal ini dapat dilihat dari nilai Recall yang sedikit lebih rendah dibandingkan dengan Precision. Selain itu, dengan menggunakan ROC AUC sebagai matriks evaluasi utama karena kemampuannya dalam mengukur false positif dan false negatif. Berikut visualisasi perbandingan ROC AUC untuk data train dan test pada setiap model.
+Berdasarkan hasil evaluasi model dengan data test, terlihat bahwa model cenderung lebih baik dalam memprediksi kelas positif (pelanggan yang membeli asuransi perjalanan) daripada kelas negatif (pelanggan yang tidak membeli asuransi perjalanan). Hal ini dapat dilihat dari nilai Recall yang lebih rendah dibandingkan dengan Precision. Selain itu, dengan menggunakan ROC AUC sebagai matriks evaluasi utama karena kemampuannya dalam mengukur false positif dan false negatif. Berikut visualisasi perbandingan ROC AUC untuk data train dan test pada setiap model.
 
 ![Comparison of evaluation model](https://drive.google.com/uc?id=1YkbUeUkemInxpR9Pm3v03cEVBcgxCrn7)  
 
-Dalam visualisasi hasil evaluasi model di atas, terlihat bahwa model GradientBoostingClassifier memiliki nilai ROC AUC tertinggi, yaitu sebesar 75% untuk data uji dan 77% untuk data pelatihan. Hal ini menunjukkan bahwa model tersebut mampu memprediksi keputusan pembelian asuransi perjalanan dengan cukup baik.
+Dalam visualisasi hasil evaluasi model di atas, terlihat bahwa model GradientBoostingClassifier memiliki nilai ROC AUC tertinggi, yaitu sebesar 75% untuk data uji dan 76% untuk data pelatihan. Hal ini menunjukkan bahwa model tersebut mampu memprediksi keputusan pembelian asuransi perjalanan dengan cukup baik.
 
 ![Feature Importance by GradientBoostingClassifier Model](https://drive.google.com/uc?id=1RNrygVgN7meOUYfxwtKu35u-xsoovBYX)  
 

@@ -191,7 +191,7 @@ Selanjutnya, akan dilakukan uji t-test untuk mengetahui fitur numerik mana yang 
   - Kesimpulan: Ada cukup bukti untuk menolak hipotesis nol. Terdapat hubungan yang signifikan antara Family Members dan Travel Insurance.
 
 - **ChronicDiseases**
-  - p-value: 0.008
+  - p-value: 0.7236399175718012
   - Kesimpulan: Tidak ada cukup bukti untuk menolak hipotesis nol. Tidak terdapat hubungan yang signifikan antara Chronic Diseases dan Travel Insurance.
 
 Berdasarkan hasil uji t dengan tingkat signifikansi 5%, ditemukan bahwa terdapat hubungan yang signifikan antara beberapa fitur numerik dan Travel Insurance. Lebih spesifiknya, Age, AnnualIncome, dan FamilyMembers memiliki hubungan yang signifikan dengan Travel Insurance. Namun, tidak terdapat hubungan yang signifikan antara ChronicDiseases dan Travel Insurance.

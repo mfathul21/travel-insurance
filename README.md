@@ -174,6 +174,28 @@ Dari matriks tersebut, dapat dilihat bahwa:
 - FamilyMembers: memiliki korelasi positif yang rendah dengan keputusan untuk membeli asuransi perjalanan.
 - ChronicDiseases: memiliki korelasi negatif yang rendah dengan keputusan untuk membeli asuransi perjalanan.
 
+Selanjutnya, akan dilakukan uji t-test untuk mengetahui fitur numerik mana yang memiliki hubungan atau pengaruh terhadap fitur target.
+
+### Hasil Uji t:
+
+- **Age**
+  - p-value: 0.016979982984617326
+  - Kesimpulan: Ada cukup bukti untuk menolak hipotesis nol. Terdapat hubungan yang signifikan antara Age dan Travel Insurance.
+
+- **AnnualIncome**
+  - p-value: 2.618533920718172e-26
+  - Kesimpulan: Ada cukup bukti untuk menolak hipotesis nol. Terdapat hubungan yang signifikan antara Annual Income dan Travel Insurance.
+
+- **FamilyMembers**
+  - p-value: 0.0026720539558227293
+  - Kesimpulan: Ada cukup bukti untuk menolak hipotesis nol. Terdapat hubungan yang signifikan antara Family Members dan Travel Insurance.
+
+- **ChronicDiseases**
+  - p-value: 0.008
+  - Kesimpulan: Tidak ada cukup bukti untuk menolak hipotesis nol. Tidak terdapat hubungan yang signifikan antara Chronic Diseases dan Travel Insurance.
+
+Berdasarkan hasil uji t dengan tingkat signifikansi 5%, ditemukan bahwa terdapat hubungan yang signifikan antara beberapa fitur numerik dan Travel Insurance. Lebih spesifiknya, Age, AnnualIncome, dan FamilyMembers memiliki hubungan yang signifikan dengan Travel Insurance. Namun, tidak terdapat hubungan yang signifikan antara ChronicDiseases dan Travel Insurance.
+
 ## Data Preparation
 
 Proses persiapan data adalah langkah penting dalam pengembangan model prediktif. Berikut adalah langkah-langkah detail yang dilakukan dalam proses persiapan data:
@@ -259,10 +281,33 @@ Berdasarkan hasil evaluasi model dengan data test, terlihat bahwa model cenderun
 <img src="https://github.com/mfathul21/travel-insurance/blob/main/assets/comparison-model.jpg?raw=true" alt="Comparison of evaluation model" width="800">
 
 Dalam visualisasi hasil evaluasi model di atas, terlihat bahwa model GradientBoostingClassifier memiliki nilai ROC AUC tertinggi, yaitu sebesar 75% untuk data uji dan 76% untuk data pelatihan. Hal ini menunjukkan bahwa model tersebut mampu memprediksi keputusan pembelian asuransi perjalanan dengan cukup baik.
+
+## Explainable AI
+
+### Feature Importance
   
 <img src="https://github.com/mfathul21/travel-insurance/blob/main/assets/feature-importance.jpg?raw=true" alt="Feature Importance by GradientBoostingClassifier Model" width="800">
 
 Analisis lebih lanjut menggunakan metode `.feature_importances_` dari model GradientBoostingClassifier menunjukkan bahwa fitur-fitur AnnualIncome, FamilyMembers, dan Age memiliki kontribusi signifikan dalam memprediksi keputusan pembelian asuransi perjalanan. Ini berarti bahwa pelanggan dengan pendapatan tahunan yang lebih tinggi, jumlah anggota keluarga yang lebih besar, dan usia yang lebih tua cenderung lebih mungkin untuk membeli asuransi perjalanan.
+
+### SHAP Value
+
+<img src="https://github.com/mfathul21/travel-insurance/blob/main/assets/shap-values%20(1).jpg?raw=true" alt="SHAP Value" width="800">
+
+Berdasarkan visualisasi yang dilakukan, diperoleh informasi berikut:
+
+- **AnnualIncome:** Fitur ini memiliki korelasi positif yang kuat dengan probabilitas membeli asuransi perjalanan. Semakin tinggi pendapatan tahunan (AnnualIncome), semakin besar nilai SHAP-nya, yang menunjukkan peningkatan kemungkinan customer untuk membeli asuransi perjalanan. AnnualIncome memiliki dampak paling besar terhadap keputusan pembelian asuransi perjalanan.
+
+- **Age:** Fitur ini juga memiliki korelasi positif yang signifikan. Semakin tinggi usia customer (Age), semakin besar nilai SHAP-nya, yang meningkatkan kemungkinan membeli asuransi perjalanan. Age memiliki dampak terbesar kedua setelah AnnualIncome.
+
+- **FamilyMembers:** Fitur ini menunjukkan korelasi positif dengan probabilitas pembelian asuransi perjalanan. Semakin banyak anggota keluarga (FamilyMembers) yang dimiliki customer, semakin besar kemungkinan mereka untuk membeli asuransi perjalanan. FamilyMembers memiliki dampak terbesar ketiga.
+
+- **Employment Type, EverTravelledAbroad, dan FrequentFlyer:** Ketiga fitur ini memiliki korelasi negatif dengan probabilitas pembelian asuransi perjalanan, meskipun dampaknya relatif kecil dibandingkan fitur-fitur lainnya. 
+  - Customer yang bekerja di sektor non-pemerintah (Employment Type non-government) memiliki kemungkinan lebih besar untuk membeli asuransi perjalanan dibandingkan yang bekerja di sektor pemerintah.
+  - Customer yang belum pernah pergi ke luar negeri (EverTravelledAbroad) memiliki kemungkinan lebih besar untuk membeli asuransi perjalanan dibandingkan yang pernah pergi ke luar negeri.
+  - Customer yang tidak memiliki frequent flyer (FrequentFlyer) juga menunjukkan kemungkinan lebih besar untuk membeli asuransi perjalanan dibandingkan yang memiliki frequent flyer.
+
+Kesimpulannya, AnnualIncome, Age, dan FamilyMembers adalah fitur-fitur yang paling berpengaruh terhadap keputusan pembelian asuransi perjalanan, dengan korelasi positif yang kuat. Meskipun Employment Type, EverTravelledAbroad, dan FrequentFlyer menunjukkan korelasi negatif, dampaknya lebih kecil namun tetap memberikan wawasan penting tentang profil customer yang cenderung membeli asuransi perjalanan.
 
 Dengan memperhitungkan hasil evaluasi ini, dapat disimpulkan bahwa model GradientBoostingClassifier telah berhasil memenuhi tujuan proyek dengan mencapai nilai ROC AUC di atas 70%. Oleh karena itu, proyek ini dapat dikatakan berhasil dalam memprediksi keputusan pembelian asuransi perjalanan dengan tingkat akurasi yang memadai.
 

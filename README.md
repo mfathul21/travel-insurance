@@ -307,9 +307,29 @@ Berdasarkan visualisasi yang dilakukan, diperoleh informasi berikut:
   - Customer yang belum pernah pergi ke luar negeri (EverTravelledAbroad) memiliki kemungkinan lebih besar untuk membeli asuransi perjalanan dibandingkan yang pernah pergi ke luar negeri.
   - Customer yang tidak memiliki frequent flyer (FrequentFlyer) juga menunjukkan kemungkinan lebih besar untuk membeli asuransi perjalanan dibandingkan yang memiliki frequent flyer.
 
-Kesimpulannya, AnnualIncome, Age, dan FamilyMembers adalah fitur-fitur yang paling berpengaruh terhadap keputusan pembelian asuransi perjalanan, dengan korelasi positif yang kuat. Meskipun Employment Type, EverTravelledAbroad, dan FrequentFlyer menunjukkan korelasi negatif, dampaknya lebih kecil namun tetap memberikan wawasan penting tentang profil customer yang cenderung membeli asuransi perjalanan.
+## Conclusion and Recommendations
 
-Dengan memperhitungkan hasil evaluasi ini, dapat disimpulkan bahwa model GradientBoostingClassifier telah berhasil memenuhi tujuan proyek dengan mencapai nilai ROC AUC di atas 70%. Oleh karena itu, proyek ini dapat dikatakan berhasil dalam memprediksi keputusan pembelian asuransi perjalanan dengan tingkat akurasi yang memadai.
+### Conclusion
+Berdasarkan hasil dari proyek ini, kita telah berhasil mencapai tujuan utama yaitu:
+
+1. **Mengidentifikasi Fitur Penting**: Fitur-fitur seperti AnnualIncome, FamilyMembers, dan Age menunjukkan dampak yang signifikan terhadap keputusan pembelian asuransi perjalanan. Selain itu, fitur kategorikal seperti Employment Type, FrequentFlyer, dan EverTravelledAbroad juga menunjukkan hubungan signifikan dengan keputusan pembelian asuransi perjalanan.
+
+2. **Membangun Model dengan ROC AUC > 70%**: Model GradientBoostingClassifier berhasil mencapai ROC AUC sebesar 75% pada data uji, memenuhi target kinerja yang telah ditetapkan. Model ini menunjukkan kinerja terbaik dibandingkan dengan model lainnya yang diuji (Logistic Regression, RandomForestClassifier, dan AdaBoostClassifier).
+
+### Recommendations
+Berdasarkan hasil analisis dan model yang telah dibangun, berikut adalah beberapa rekomendasi untuk perusahaan dalam meningkatkan penjualan asuransi perjalanan:
+
+1. **Segmentasi Pelanggan**: Menggunakan fitur-fitur penting yang telah diidentifikasi, perusahaan dapat melakukan segmentasi pelanggan yang lebih baik. Misalnya, menargetkan pelanggan dengan pendapatan tahunan yang lebih tinggi dan mereka yang memiliki anggota keluarga lebih banyak.
+
+2. **Personalisasi Penawaran**: Dengan memahami bahwa pelanggan yang sering bepergian ke luar negeri atau memiliki status FrequentFlyer cenderung lebih tertarik pada asuransi perjalanan, perusahaan dapat membuat penawaran yang lebih personal dan relevan bagi segmen ini.
+
+3. **Pemasaran yang Ditingkatkan**: Mengarahkan kampanye pemasaran kepada kelompok demografis tertentu seperti individu yang lebih tua atau mereka yang bekerja di sektor swasta, karena mereka menunjukkan kecenderungan lebih tinggi untuk membeli asuransi perjalanan.
+
+4. **Edukasi dan Promosi**: Mengedukasi pelanggan tentang manfaat asuransi perjalanan, terutama mereka yang belum pernah bepergian ke luar negeri, dapat membantu meningkatkan kesadaran dan minat terhadap produk asuransi.
+
+5. **Pemantauan dan Penyesuaian**: Secara berkala memantau kinerja model prediksi dan melakukan penyesuaian sesuai dengan perubahan perilaku pelanggan dan dinamika pasar untuk memastikan model tetap akurat dan relevan.
+
+Dengan mengikuti rekomendasi ini, perusahaan dapat meningkatkan tingkat konversi asuransi perjalanan, mempersonalisasi penawaran mereka lebih efektif, dan pada akhirnya meningkatkan penjualan serta kepuasan pelanggan.
 
 ## References
 [1] J. Smith dan A. Johnson, "Predictive Modeling in Travel Insurance," *Journal of Travel Research*, vol. 45, no. 2, hal. 231-245, 2020.
